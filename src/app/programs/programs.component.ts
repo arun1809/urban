@@ -13,7 +13,7 @@ export class ProgramsComponent implements OnInit {
 
   constructor() {
   	this.editImg = 'assets/images/editImg.png';
-  }  
+  };
 
 	ngOnInit() {
 		console.log(this.moreData[0]);
@@ -106,7 +106,7 @@ export class ProgramsComponent implements OnInit {
 		{
 		    this.showData = false;
 		}
-	}
+	};
 
 
  
