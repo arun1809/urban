@@ -1,2 +1,4 @@
+npm install
 npm install highcharts --save
 npm install ngx-bootstrap --save
+npm start
