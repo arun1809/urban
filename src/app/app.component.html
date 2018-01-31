@@ -1,0 +1,81 @@
+<html>
+<head>
+    <title>Urban Yoga</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-color: #e8e8e84d;">
+  <nav style="background-color: #e3fdf182;">
+    <div class="container">
+      <div class="row" style="margin-bottom: -42px;">
+        <div class="col-md-2"><img [src]="logoImg"></div>
+        <div class="col-md-2"><h4 style="margin-top: 35px; margin-left: -90px;">Urban Yoga</h4></div>
+      </div>
+      <ul class="nav nav-tabs pull-right">
+        <li class="active"><a data-toggle="tab" href="#dashboard">Dashboard</a></li>
+        <li><a data-toggle="tab">Sign In</a></li>
+        <li><a data-toggle="tab">Classes</a></li>
+        <li><a data-toggle="tab">Workshops</a></li>
+        <li><a data-toggle="tab">Appointments</a></li>
+        <li><a data-toggle="tab">Client Home</a></li>
+        <li><a data-toggle="tab">Retail</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="tab-content">
+    <div id="dashboard" class="tab-pane fade in active">
+      <nav style="background-color: #fff;">
+        <div class="container">
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#dashboard">Dashboard</a></li>
+            <li><a data-toggle="tab">Business Overview</a></li>
+            <li><a data-toggle="tab">Schedule</a></li>
+            <li><a data-toggle="tab">Reports</a></li>
+          </ul>
+        </div>
+      </nav>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <div align="center">
+              <img [src]="addImg" style="margin-bottom: -35px;">
+              New Program
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="">
+              <div *ngFor="let program of programs">
+                <app-programs [program]=program [moreData]=programsMoreData></app-programs>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-10">
+            <div class="col-md-3"><strong>All Programs</strong> </div>
+            <div class="col-md-3"><strong>Monthly Sales</strong> </div>
+            <div class="col-md-3"><strong>Monthly Attendance</strong> </div>
+          </div>
+        </div>
+        <div class="row" *ngFor="let program of programs">
+          <div class="col-md-2"></div>
+          <div class="col-md-10">
+            <div class="col-md-3">{{program.Name}}</div>
+            <div class="col-md-3">$ {{program.TotalMonthlySales}}</div>
+            <div class="col-md-3">{{program.MonthlyAttendance}} visits</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs title">
+    </div>
+  </footer> 
+</body>
+</html>

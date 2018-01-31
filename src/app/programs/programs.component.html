@@ -1,0 +1,47 @@
+<div class="col-md-4">
+	<div style="background-color: #fff;display: block;
+    padding: 10px 10px 1px 10px;
+    margin-bottom: -12px;
+    border-radius: 4px;">
+		<div>
+			<span class="pull-left">
+				<strong class="title">{{program.Name}}</strong>
+			</span>
+			<span class="pull-right">
+				<img [src]="editImg"/>
+			</span>
+		</div>
+		<br>
+		<div style="font-size: 0.8em;">
+			Sales by month
+			<div style="width: 50px !important;">
+				<chart [options]="options"></chart>
+			</div>
+			<div class="row" style="background-color: #e8e8e83d	; height: 70px; margin-right: -10px; margin-left: -10px;">
+				<div class="col-md-3">Total Monthly Sales</div>
+				<div class="col-md-3">Current  ${{program.TotalMonthlySales}}</div>
+				<div class="col-md-6">
+					1-Year
+					<chart [options]="sales"></chart>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="showData">
+        	<div class="row" style="font-size: 0.8em;">
+            	<div class="col-md-6">Name</div>
+            	<div class="col-md-3">Current</div>
+            	<div class="col-md-3">1-Year</div>
+        	</div>
+            <div class="row" style="font-size: 0.8em;" *ngFor="let dat of moreData">
+            	<div *ngIf="dat.ProgramID==program.ProgramID">
+            		<div class="col-md-6">{{dat.Name}}</div>
+	            	<div class="col-md-3">{{dat.Sales}}</div>
+            	</div>
+            </div>
+        </div>
+	    <button class="btn btn-sm" *ngIf ="!showData" (click)="showMoreItems()">More</button>
+		<button class="btn btn-sm" *ngIf ="showData" (click)="showLessItems()">Less</button>
+	</div>
+<br>
+<br>
+</div>
